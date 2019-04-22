@@ -1,0 +1,75 @@
+<ion-header>
+  
+
+  <ion-toolbar>
+  
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="text-align:center">
+          
+            MovieList
+        
+          </ion-title>
+      </ion-toolbar>
+    </ion-header>
+   
+      <ion-content padding>
+  
+          <!-- List of Text Items -->
+          <ion-button color="danger" (click)="deleteAllMovies()">DeleteAllMovies</ion-button>     
+  <ion-list  inset="true" lines="none" insert="true" *ngFor="let m of movie">
+          <ion-card>
+                <ion-item >      
+                      <ion-label> 
+                                <ion-badge color="primary" style="float:right" (click)="onSelect(m.id)" >Edit   
+                                   <ion-icon name="create"></ion-icon></ion-badge>                                  
+                        </ion-label>   
+                  </ion-item>
+                      
+                  <ion-item >  
+                      <ion-label>   
+                         <img src="{{m.image_url}}" style="height:200px;" />
+
+                      </ion-label>
+                  </ion-item >
+                  
+                    <ion-item >  
+                        <ion-label>   
+                        {{m.id}} .
+                        {{m.name}} ||
+                           {{m.year}} 
+
+                        </ion-label>
+                    </ion-item >
+                    <ion-item >  
+                        <ion-label>   
+                 {{m.production_house}}||
+                     {{m.type}} 
+                        </ion-label>
+                    </ion-item>
+                  <ion-item>
+                        <ion-label>
+                     {{m.rating}} ||    
+                  {{m.language}} 
+                        </ion-label>
+                      </ion-item >
+                      
+                      <ion-item>
+                          <ion-label>
+                     
+                         {{m.date}} ||
+                          {{m.year}} 
+                    </ion-label>
+                      </ion-item>
+  
+                    <ion-item style="float:right">
+                        <ion-icon color="danger" (click)="deleteMovie(m)"  name="trash"></ion-icon> 
+  
+                    </ion-item>
+                  
+          </ion-card>
+      </ion-list>
+  
+  </ion-content>
+  
